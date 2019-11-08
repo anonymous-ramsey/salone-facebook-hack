@@ -1,4 +1,4 @@
-var MyData = [
+let MyData = [
     "key: value",
     "ab: hi there",
     "we: say what"
