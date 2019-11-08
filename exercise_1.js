@@ -1,24 +1,22 @@
-// var arr = ["hello", "world", "hi", "bye"];
-// var min = Math.min(...arr.map(({ length }) => length));
-// console.log(min);
+// using es6 function to return the shortest word
 
-// var arr = ["hello", "world", "hi", "bye"];
-// var min = Math.min.apply(Math, arr.map(function(str) { return str.length; }));
-// console.log(min);
+let arrayData = ["hello", "muchasgracias", "hi", "elephant"];
 
-var my_arry = ["hello", "muchasgracias", "hi", "elephant"];
-
-function findShortest(arry) {
-    return arry.reduce(function(prevWord,currWord) {
-        if (currWord.length > prevWord.length) {
-            //console.log(currWord);
-            return currWord
+const returnShortest = (data) => {
+    return data.reduce((currentWord, nextWord) =>{
+        if (currentWord.length > nextWord.length) {
+            return nextWord;
         }
         else {
-            //console.log(prevWord);
-            return prevWord;
+            return currentWord;
         }
-    })
+    });
 }
 
-console.log(findShortest(my_arry));
+console.log(returnShortest(arrayData));
+
+//also you can return the length of the shortest word in the array -- see code below
+
+let data_ = ["hello", "muchasgracias", "hi", "elephant"];
+let min = Math.min(...data_.map(({ length }) => length));
+console.log(min);
