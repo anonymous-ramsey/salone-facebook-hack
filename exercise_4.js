@@ -1,16 +1,17 @@
-var fs = require('fs');
+let fs = require('fs');
 
-function get_line(filename, line_no, callback) {
-    var data = fs.readFileSync(filename, 'utf8');
-    var lines = data.split("\n");
+let data_lines;
+let data_type;
 
-    if(+line_no > lines.length){
-        throw new Error('File end reached without finding line');
+const get_init_line = (filename, line, stackTraceer) => {
+    data_type = fs.readFileSync(filename, 'utf8');
+    data_lines = data_type.split("\n");
+    if (+line > data_lines.length) {
+        console.log('completed reading file but line not found');
     }
-
-    callback(null, lines[+line_no]);
+    stackTraceer(null, data_lines[+line]);
 }
 
-get_line('./helloworld.txt', 9, function(err, line){
-    console.log('The line: ' + line);
+get_init_line('./helloworld.txt', 9, (err, line) => {
+    console.log('data in line 10 is: ' + line);
 });
