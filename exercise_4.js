@@ -3,7 +3,7 @@ let fs = require('fs');
 let data_lines;
 let data_type;
 
-const get_init_line = (filename, line, stackTraceer) => {
+const get_init_line = (file_name, line_no, stackTrace) => {
     data_type = fs.readFileSync(filename, 'utf8');
     data_lines = data_type.split("\n");
     if (+line > data_lines.length) {
